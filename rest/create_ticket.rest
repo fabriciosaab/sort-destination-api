@@ -1,0 +1,96 @@
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "St. Anton am Arlberg Bahnhof",
+  "to": "Innsbruck Hbf",
+  "identification": "train RJX 765",
+  "access": "Platform 3",
+  "seat": "Seat number 17C",
+  "luggage": ""
+}
+
+###
+
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "Innsbruck Hbf",
+  "to": "Innsbruck Airport",
+  "identification": "Tram S5",
+  "access": "",
+  "seat": "",
+  "luggage": ""
+}
+
+###
+
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "Innsbruck Airport",
+  "to": "Venice",
+  "identification": "Flight AA904",
+  "access": "gate 10",
+  "seat": "seat 18B",
+  "luggage": "Self-check-in luggage at counter"
+}
+
+
+###
+
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "Venice",
+  "to": "Bologna San Rullo",
+  "identification": "train ICN 35780",
+  "access": "Platform 1",
+  "seat": "Seat number 13F",
+  "luggage": ""
+}
+
+###
+
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "Bologna San Rullo",
+  "to": "Bologna Guglielmo Marconi Airport",
+  "identification": "airport bus",
+  "access": "gate 10",
+  "seat": "",
+  "luggage": ""
+}
+
+###
+
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "Bologna Guglielmo Marconi Airport",
+  "to": "Paris",
+  "identification": "Flight AF1229",
+  "access": "gate 22",
+  "seat": "seat 10A",
+  "luggage": "Self-check-in luggage at counter"
+}
+
+###
+
+POST http://localhost:3000/tickets HTTP/1.1
+content-type: application/json
+
+{
+  "from": "Paris",
+  "to": "Chicago O'Hare",
+  "identification": "Flight AF136",
+  "access": "gate 32",
+  "seat": "seat 10A",
+  "luggage": "Luggage will transfer automatically from the last Flight"
+}
