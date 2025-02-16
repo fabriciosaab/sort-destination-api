@@ -17,4 +17,15 @@ export class TicketsService {
     return newTicket;
   }
 
+  findAll(): Ticket[] {
+    return this.tickets;
+  }
+
+  findOne(id: number): Ticket {
+    const ticket = this.tickets.find((t) => t.id === id);
+    if (!ticket) {
+      throw new NotFoundException(`Ticket with ID ${id} not found`);
+    }
+    return ticket;
+  }
 }

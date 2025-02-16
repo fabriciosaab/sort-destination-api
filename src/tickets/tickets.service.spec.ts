@@ -27,5 +27,12 @@ describe('TicketsService', () => {
     expect(ticket.from).toBe('New York');
   });
 
-  
+  it('should return all tickets', () => {
+    service.create({ from: 'NY', to: 'LA', identification: '123', access: 'VIP', seat: '1A', luggage: '1 bag'});
+    expect(service.findAll().length).toBe(1);
+  });
+
+  it('should throw error when ticket not found', () => {
+    expect(() => service.findOne(999)).toThrow(NotFoundException);
+  });
 });
