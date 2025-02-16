@@ -18,6 +18,8 @@ export class TicketsService {
   }
 
   findAll(): Ticket[] {
+    console.log('findAll', this.tickets);
+
     return this.tickets;
   }
 
@@ -42,4 +44,43 @@ export class TicketsService {
     }
     this.tickets.splice(index, 1);
   }
+
+  sortTickets(): Ticket[] {
+    if (this.tickets.length === 0) {
+        throw new NotFoundException(`No Tickets to sort`);
+    }
+  
+    // Fill the maps
+    const fromToMap = new Map<string, string>();
+    const toFromMap = new Map<string, string>();
+    const ticketMap = new Map<string, Ticket>();
+  
+    for (const ticket of this.tickets) {
+      fromToMap.set(ticket.from, ticket.to);
+      toFromMap.set(ticket.to, ticket.from);
+      ticketMap.set(ticket.from, ticket);
+    }
+  
+    // Find the first ticket(that one that no other has as destination)
+    let startPoint = this.tickets.find(ticket => !toFromMap.has(ticket.from));
+    if (!startPoint) {
+      throw new Error('Could not determine the start ticket. Possible circular reference.');
+    }
+  
+    // Sort the tickets
+    let sortedTickets: Ticket[] = [];
+    let current: Ticket | undefined = startPoint;
+  
+    while (current) {
+      sortedTickets.push(current);
+      current.order = sortedTickets.length; // Put correct order
+      current = ticketMap.get(current.to); // Take the next ticket
+  
+      // undefined break the loop
+      if (!current) break;
+    }
+  
+    return sortedTickets;
+  }
+
 }

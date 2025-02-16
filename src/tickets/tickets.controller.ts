@@ -24,6 +24,13 @@ export class TicketsController {
     return this.ticketsService.findAll();
   }
 
+  @Get('sortTickets')
+  @ApiOperation({ summary: 'Sort Tickets to correct order' })
+  @ApiResponse({ status: 200, description: 'Sort completed', type: [Ticket] })
+  sortTickets() {
+    return this.ticketsService.sortTickets();
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get a ticket by ID' })
   @ApiResponse({ status: 200, description: 'Travel ticket found', type: Ticket })
