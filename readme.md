@@ -130,6 +130,18 @@ GET http://localhost:3000/tickets/sort-description
 
 Now, if you open this endpoint in a browser, you'll see a nicely formatted travel itinerary! 🚀
 
+### 5️⃣Start new Trip
+When is necessary to start a new trip deleting all tickets
+
+```http
+GET http://localhost:3000/tickets/start-new-trip
+```
+
+#### 📌 Response Example:
+
+```html
+New trip started
+```
 
 ## Contact
 
