@@ -83,4 +83,40 @@ export class TicketsService {
     return sortedTickets;
   }
 
+  getSortedTicketsDescription(): string {
+    const sortedTickets = this.sortTickets();
+  
+    if (sortedTickets.length === 0) {
+      return '<p>No tickets available.</p>';
+    }
+  
+    let tripHtml = `<h2>Travel Itinerary</h2><ol>`;
+  
+    for (const ticket of sortedTickets) {
+      tripHtml += `<li>Board <strong>${ticket.identification}</strong>`;
+      
+      if (ticket.access) {
+        tripHtml += `, <strong>${ticket.access}</strong>`;
+      }
+
+      tripHtml += ` from <strong>${ticket.from}</strong> to <strong>${ticket.to}</strong>.`;
+
+      if (ticket.seat) {
+        tripHtml += ` <strong>${ticket.seat}</strong>.`;
+      }
+
+      if (ticket.luggage) {
+        tripHtml += ` <strong>${ticket.luggage}</strong>.</li>`;
+      }
+
+      tripHtml += `</li>`;
+
+    }
+  
+    tripHtml += `</ol>`;
+  
+    return tripHtml;
+  }
+  
+
 }

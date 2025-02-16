@@ -31,6 +31,13 @@ export class TicketsController {
     return this.ticketsService.sortTickets();
   }
 
+  @Get('sort-description')
+  @ApiOperation({ summary: 'Show tickets in Human readable text' })
+  @ApiResponse({ status: 200, description: 'Show sorted Tickets' })
+  getSortedTicketsDescription(): string {
+    return this.ticketsService.getSortedTicketsDescription();
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get a ticket by ID' })
   @ApiResponse({ status: 200, description: 'Travel ticket found', type: Ticket })
