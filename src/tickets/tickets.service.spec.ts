@@ -41,4 +41,9 @@ describe('TicketsService', () => {
     service.remove(ticket.id);
     expect(service.findAll().length).toBe(0);
   });
+
+  it('should start new trip', () => {
+    service.startNewTrip();
+    expect(service.findAll().length).toBe(0);
+  });
 });

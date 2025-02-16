@@ -38,6 +38,13 @@ export class TicketsController {
     return this.ticketsService.getSortedTicketsDescription();
   }
 
+  @Get('start-new-trip')
+  @ApiOperation({ summary: 'Start new trip deleting all tickets' })
+  @ApiResponse({ status: 200, description: 'Start new trip' })
+  startNewTrip(): string {
+    return this.ticketsService.startNewTrip();
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Get a ticket by ID' })
   @ApiResponse({ status: 200, description: 'Travel ticket found', type: Ticket })
