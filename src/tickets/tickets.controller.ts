@@ -38,4 +38,10 @@ export class TicketsController {
     return this.ticketsService.update(Number(id), updateTicketDto);
   }
 
+  @Delete(':id')
+  @ApiOperation({ summary: 'Delete a travel ticket' })
+  @ApiResponse({ status: 204, description: 'Ticket deleted' })
+  remove(@Param('id') id: number) {
+    this.ticketsService.remove(Number(id));
+  }
 }

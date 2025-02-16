@@ -34,4 +34,12 @@ export class TicketsService {
     Object.assign(ticket, updateTicketDto);
     return ticket;
   }
+
+  remove(id: number): void {
+    const index = this.tickets.findIndex((t) => t.id === id);
+    if (index === -1) {
+      throw new NotFoundException(`Ticket with ID ${id} not found`);
+    }
+    this.tickets.splice(index, 1);
+  }
 }

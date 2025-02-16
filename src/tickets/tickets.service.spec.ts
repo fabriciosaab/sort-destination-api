@@ -35,4 +35,10 @@ describe('TicketsService', () => {
   it('should throw error when ticket not found', () => {
     expect(() => service.findOne(999)).toThrow(NotFoundException);
   });
+
+  it('should delete a ticket', () => {
+    const ticket = service.create({ from: 'NY', to: 'LA', identification: '123', access: 'VIP', seat: '1A', luggage: '1 bag'});
+    service.remove(ticket.id);
+    expect(service.findAll().length).toBe(0);
+  });
 });
