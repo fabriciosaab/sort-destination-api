@@ -19,8 +19,4 @@ export class CreateTicketDto {
 
   @ApiProperty({ example: 'Self-check-in luggage at counter', description: 'Luggage information' })
   luggage: string;
-
-  @ApiPropertyOptional({ example: '1', description: 'Ticket Order number to be sorted', required: false  })
-  @IsOptional()
-  order?: number;
 }
