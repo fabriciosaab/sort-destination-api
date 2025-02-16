@@ -117,6 +117,10 @@ export class TicketsService {
   
     return tripHtml;
   }
-  
+
+  startNewTrip(): string {
+    this.tickets = [];
+    return 'New trip started';
+  }
 
 }
