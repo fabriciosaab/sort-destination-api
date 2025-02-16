@@ -28,4 +28,10 @@ export class TicketsService {
     }
     return ticket;
   }
+
+  update(id: number, updateTicketDto: UpdateTicketDto): Ticket {
+    const ticket = this.findOne(id);
+    Object.assign(ticket, updateTicketDto);
+    return ticket;
+  }
 }

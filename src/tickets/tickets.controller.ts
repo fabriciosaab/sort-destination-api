@@ -30,4 +30,12 @@ export class TicketsController {
   findOne(@Param('id') id: number) {
     return this.ticketsService.findOne(Number(id));
   }
+
+  @Patch(':id')
+  @ApiOperation({ summary: 'Update a travel ticket' })
+  @ApiResponse({ status: 200, description: 'Ticket updated', type: Ticket })
+  update(@Param('id') id: number, @Body() updateTicketDto: UpdateTicketDto) {
+    return this.ticketsService.update(Number(id), updateTicketDto);
+  }
+
 }
